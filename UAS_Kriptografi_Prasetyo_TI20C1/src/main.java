@@ -34,23 +34,23 @@ public class main {
 
         String hexToDeci = "";
         for (int i = 0; i < msg.length()-1; i+=2) {
-            // splitting hex into a pair of two
+            
             String output = msg.substring(i, (i+2));
             int decimal = Integer.parseInt(output, 16);
             hexToDeci += (char)decimal;
         }
 
-        // decryption
+        // deskript
         String decrypText = "";
         int keyItr = 0;
         for (int i = 0; i < hexToDeci.length(); i++) {
-            // XOR Operation
+            // Operasi XOR
             int temp = hexToDeci.charAt(i) ^ key.charAt(keyItr);
 
             decrypText += (char)temp;
             keyItr++;
             if(keyItr >= key.length()){
-                // once all of key's letters are used, repeat the key
+                
                 keyItr = 0;
             }
 
@@ -69,13 +69,13 @@ public class main {
         String encrypHexa = "";
         int keyItr = 0;
         for (int i = 0; i < msg.length(); i++) {
-            // XOR Operation
+            // Opersi XOR
             int temp = msg.charAt(i) ^ key.charAt(keyItr);
 
             encrypHexa += String.format("%02x", (byte)temp);
             keyItr++;
             if(keyItr >= key.length()){
-                // once all of key's letters are used, repeat the key
+                
                 keyItr = 0;
             }
 
